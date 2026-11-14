@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #F8F4EC; color: #343235; font-family: Inter, 'Noto Sans JP', sans-serif; overflow-x: hidden; }
+button:focus-visible, a:focus-visible { outline: 2px solid #C58F98; outline-offset: 3px; }
+
+.petal { position: fixed; top: -6vh; z-index: 5; pointer-events: none; width: 11px; height: 14px;
+  background: radial-gradient(circle at 30% 30%, #F0C9CC, #C58F98); border-radius: 80% 0 80% 0; opacity: .7;
+  animation: fall linear infinite; }
+@keyframes fall {
+  0% { transform: translate3d(0,0,0) rotate(0deg); }
+  100% { transform: translate3d(14vw,108vh,0) rotate(540deg); }
+}
+.bird { animation: drift 14s ease-in-out infinite alternate; }
+@keyframes drift { from { transform: translate(-12px, 6px); } to { transform: translate(28px, -14px); } }
+@media (prefers-reduced-motion: reduce) {
+  .petal, .bird { animation: none; display: none; }
+  html { scroll-behavior: auto; }
+}
